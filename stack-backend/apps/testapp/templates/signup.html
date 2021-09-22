@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block head_block %}
+    <title>Sign Up</title>
+{% endblock head_block %}
+
+{% block body_block %}
+<div class="container">
+    <form action="/signup/" method="post" class="form">
+        {% csrf_token %}
+        <h3> Sign Up</h3>
+        <span class="float-right">
+          <a href="/"> Go to Home </a>
+        </span>
+        {% bootstrap_form signup_form %}
+        {% bootstrap_form_errors signup_form %}
+        {% bootstrap_messages %}
+        <span class="float-right">
+            Already have a account ?<a href="/login"> Login here </a>
+        </span>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock body_block %}
